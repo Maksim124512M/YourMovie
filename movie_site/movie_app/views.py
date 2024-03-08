@@ -21,6 +21,8 @@ class RegisterView(FormView):
 def index(request):
     return render(request, 'home.html')
 
+def profile(request):
+    return render(request, 'profile.html')
 
 class FilmViewSet(ModelViewSet):
     serializer_class = FilmSerializer

@@ -10,6 +10,6 @@ router.register(r'films', FilmViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('movie_app.urls')),
-    path('api/', include(router.urls)),
+    path('api/films', include(router.urls)),
 ]
 

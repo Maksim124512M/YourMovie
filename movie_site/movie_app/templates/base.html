@@ -22,10 +22,15 @@
                 <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+        
+                  
               </ul>
               {% if user.is_authenticated %}
               <h6 style="position: absolute; left: 1450px; top: 25px; color: white;">{{ user }}</h6>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" style="position: absolute; left: 1250px; top: 15px; background-color: #20c3c9;" class="btn rounded-pill btn-dark py-2 px-4">Logout</button>
+              </form>
               {% else %}
                 <ul class="navbar-nav ml-auto">
                   <a class="nav-link" href="{% url 'login' %}">Login</a>
