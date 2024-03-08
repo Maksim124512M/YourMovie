@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+<body>
+    <div class="header2 bg-success-gradiant">
+        <div class="">
+          <nav class="navbar navbar-expand-lg h2-nav">
+            <a class="navbar-brand" style="color: blue;">YourMovie</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header2" aria-controls="header2" aria-expanded="false" aria-label="Toggle navigation">
+                  </button>
+            <div class="collapse navbar-collapse hover-dropdown" id="header2">
+              <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+              {% if user.is_authenticated %}
+              <h6 style="position: absolute; left: 1450px; top: 25px; color: white;">{{ user }}</h6>
+              {% else %}
+                <ul class="navbar-nav ml-auto">
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                  <li class="nav-item"><a class="btn rounded-pill btn-dark py-2 px-4" href="{% url 'signup' %}">Sign up</a></li>
+                </ul>
+              {% endif %}
+            </div>
+          </nav>
+        </div>
+      </div>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
