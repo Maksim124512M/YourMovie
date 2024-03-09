@@ -5,6 +5,10 @@ Home
 {% endblock %}
 
 {% block body %}
-User: {{ user }}
-<h1>Home page</h1>
+{% for i in film %}
+<div class="alert alert-info" style="float: left; margin-left: 48px; margin-top: 70px; text-align: left;">
+    <a href="film/{{ i.id }}"><h5>{{ i.name }}</h5></a>
+    <img src="{{ i.image.url }}">
+ </div>
+{% endfor %}
 {% endblock %}

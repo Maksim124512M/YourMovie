@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% for i in film %}
+{{ i.name }}
+{% endfor %}
+{% endblock %}
+
+{% block body %}
+{% for i in film %}
+<div>
+    <h3 style="margin: 10px;">{{ i.name }}</h3>
+    <img src="{{ i.image.url }}" style="margin-left: 10px;">
+    <p style="position: absolute; left: 550px; top: 110px; font-family: Verdana; font-size: 30px; margin-right: 10px;">{{ i.description }}</p>
+    <h2 style="position: absolute; left: 10px; top: 820px; font-size: 80px;">Comments</h2>
+</div>
+
+<div class="comment">
+    <form action="" method="post">
+        {% csrf_token %}
+            <div class="alert alert-info" style="position: absolute; top: 720px;">
+                {{ form }}
+                <button class="btn btn-block btn-bold btn-primary" type="submit">Send a comment</button>
+            </div>
+    </form>
+</div>
+
+<div class="alert alert-info" style="position: absolute; top: 960px; width: 1519.5px;">
+<div class="alert alert-info">
+    <div class="alert alert-info">
+        {% for i in comment %}
+        <p>{{ i.comment }}</p>
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
