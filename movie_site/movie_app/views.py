@@ -20,6 +20,8 @@ class RegisterView(FormView):
     
 def home(request):
     film = Film.objects.all()
+
+
     context = {
         'film': film,
     }
@@ -30,6 +32,8 @@ def film(request, id):
     form = CommentForm()
     user_model = User.objects.all()
     comment_model = Comment.objects.all()
+
+    
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
