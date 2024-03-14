@@ -4,6 +4,7 @@ class Film(models.Model):
     name = models.CharField(max_length=30, null=False)
     description = models.TextField()
     image = models.ImageField(upload_to='images/')
+    genre = models.CharField(max_length=50, blank=False, null=False, default='Genre')
 
     def __str__(self):
         return self.name

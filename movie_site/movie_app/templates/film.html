@@ -12,10 +12,11 @@
     <h3 style="margin: 10px;">{{ i.name }}</h3>
     <img src="{{ i.image.url }}" style="margin-left: 10px;">
     <p style="position: absolute; left: 550px; top: 110px; font-family: Verdana; font-size: 30px; margin-right: 10px;">{{ i.description }}</p>
+    <h4 style="position: absolute; left: 550px; top: 520px;">Genre - {{ i.genre }}</h4>
     <h2 style="position: absolute; left: 10px; top: 820px; font-size: 80px;">Comments</h2>
 </div>
 
-<div class="comment">
+<div class="comment" style="margin-left: 9px; margin-top: 10px;">
     <form action="" method="post">
         {% csrf_token %}
             <div class="alert alert-info" style="position: absolute; top: 720px;">
