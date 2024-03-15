@@ -20,7 +20,10 @@ class RegisterView(FormView):
     
 def home(request):
     film = Film.objects.all()
+    search_query = request.GET.get('search', '')
 
+    if search_query:
+        film = Film.objects.filter(name__icontains=search_query)
 
     context = {
         'film': film,

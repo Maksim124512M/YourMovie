@@ -19,11 +19,6 @@
             <div class="collapse navbar-collapse hover-dropdown" id="header2">
               <ul class="navbar-nav">
                 <li class="nav-item active"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        
-                  
               </ul>
               {% if user.is_authenticated %}
               <h6 style="position: absolute; left: 1450px; top: 25px; color: white;">{{ user }}</h6>

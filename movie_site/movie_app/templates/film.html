@@ -16,6 +16,7 @@
     <h2 style="position: absolute; left: 10px; top: 820px; font-size: 80px;">Comments</h2>
 </div>
 
+{% if request.user.is_authenticated %}
 <div class="comment" style="margin-left: 9px; margin-top: 10px;">
     <form action="" method="post">
         {% csrf_token %}
@@ -25,15 +26,21 @@
             </div>
     </form>
 </div>
+{% else %}
+<div class="alert alert-info" style="margin-left: 9px; margin-top: 10px; width: 402px;">
+    <h3>Login or sign up for send a comment</h3>
+</div>
+{% endif %}
 
 <div class="alert alert-info" style="position: absolute; top: 960px; width: 1519.5px;">
-<div class="alert alert-info">
-    <div class="alert alert-info">
-        {% for i in comment %}
-        <p>{{ i.comment }}</p>
+    <div class="comment">
+        {% for i in user %}
+        {% for j in comment %}
+            <h3>{{ i.username }}</h3>
+            <p>{{  j.comment }}</p>
+        {% endfor %}
         {% endfor %}
     </div>
-</div>
 </div>
 {% endfor %}
 {% endblock %}

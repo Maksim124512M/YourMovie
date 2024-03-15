@@ -5,10 +5,17 @@ Home
 {% endblock %}
 
 {% block body %}
+    <div class="search">
+        <form action="{% url 'home' %}">
+            <input type="search" placeholder="Search" style="position: absolute; left: 49px; top: 75px; height: 50px; width: 1250px; font-size: 30px;" name="search">
+            <button type="submit" style="position: absolute; left: 1310px; top: 72px; background-color: #20c3c9; width: 160px; height: 55px;" class="btn rounded-pill btn-dark py-2 px-4">Search</button>
+        </form>
+        
+    </div>
 {% for i in film %}
-<div class="alert alert-info" style="float: left; margin-left: 48px; margin-top: 70px; text-align: left;">
-    <a href="film/{{ i.id }}"><h5>{{ i.name }}</h5></a>
-    <img src="{{ i.image.url }}">
- </div>
+    <div class="alert alert-info" style="float: left; margin-left: 48px; margin-top: 70px; text-align: left;">
+        <a href="film/{{ i.id }}"><h5>{{ i.name }}</h5></a>
+        <img src="{{ i.image.url }}">
+     </div>
 {% endfor %}
 {% endblock %}

@@ -17,11 +17,10 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-LOGIN_REGIRECT_URL = '/'
+ALLOWED_HOSTS = ['127.0.0.1']
 
+LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-ALLOWED_HOSTS = []
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",

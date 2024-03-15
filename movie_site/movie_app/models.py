@@ -15,3 +15,10 @@ class Film(models.Model):
 
 class Comment(models.Model):
     comment = models.CharField(max_length=500)
+
+    def __str__(self) -> str:
+        return self.comment
+    
+    class Meta:
+        verbose_name = 'Comment'
+        verbose_name_plural = 'Comments'
