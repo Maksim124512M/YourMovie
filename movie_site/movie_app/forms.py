@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import Comment
 from django import forms
@@ -23,7 +23,6 @@ class UserSignupForm(UserCreationForm):
 
 class CommentForm(forms.ModelForm):
     comment = forms.CharField(max_length=500, widget=forms.TextInput(attrs={
-        'margin-left': '150',
         'placeholder': 'Text',
     }))
     class Meta:

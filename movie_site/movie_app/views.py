@@ -13,7 +13,7 @@ class RegisterView(FormView):
     form_class = UserSignupForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('home')
-
+    
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
@@ -32,11 +32,9 @@ def home(request):
 
 def film(request, id):
     film = Film.objects.filter(id=id)
-    form = CommentForm()
-    user_model = User.objects.all()
+    form = CommentForm()    
+    user_model = User.objects.filter()
     comment_model = Comment.objects.all()
-
-    
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -55,3 +53,4 @@ class FilmViewSet(ModelViewSet):
     serializer_class = FilmSerializer
     queryset = Film.objects.all().order_by('name')
     permission_classes = (IsAdminUser)
+  

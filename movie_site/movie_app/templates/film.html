@@ -12,35 +12,10 @@
     <h3 style="margin: 10px;">{{ i.name }}</h3>
     <img src="{{ i.image.url }}" style="margin-left: 10px;">
     <p style="position: absolute; left: 550px; top: 110px; font-family: Verdana; font-size: 30px; margin-right: 10px;">{{ i.description }}</p>
-    <h4 style="position: absolute; left: 550px; top: 520px;">Genre - {{ i.genre }}</h4>
-    <h2 style="position: absolute; left: 10px; top: 820px; font-size: 80px;">Comments</h2>
-</div>
-
-{% if request.user.is_authenticated %}
-<div class="comment" style="margin-left: 9px; margin-top: 10px;">
-    <form action="" method="post">
-        {% csrf_token %}
-            <div class="alert alert-info" style="position: absolute; top: 720px;">
-                {{ form }}
-                <button class="btn btn-block btn-bold btn-primary" type="submit">Send a comment</button>
-            </div>
-    </form>
-</div>
-{% else %}
-<div class="alert alert-info" style="margin-left: 9px; margin-top: 10px; width: 402px;">
-    <h3>Login or sign up for send a comment</h3>
-</div>
-{% endif %}
-
-<div class="alert alert-info" style="position: absolute; top: 960px; width: 1519.5px;">
-    <div class="comment">
-        {% for i in user %}
-        {% for j in comment %}
-            <h3>{{ i.username }}</h3>
-            <p>{{  j.comment }}</p>
-        {% endfor %}
-        {% endfor %}
-    </div>
+    <h4 style="position: absolute; left: 550px; top: 500px;">Genre - {{ i.genre }}</h4>
+    <h4 style="position: absolute; left: 550px; top: 580px;">Actors - {{ i.actors }}</h4>
+    <h4 style="position: absolute; left: 550px; top: 660px;">Release date - {{ i.date }}</h4>
+    <h4 style="position: absolute; left: 550px; top: 720px;">Country - {{ i.country }}</h4>
 </div>
 {% endfor %}
 {% endblock %}
